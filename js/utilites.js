@@ -17,7 +17,7 @@ const displayProduct = (data,container) => {
       </div>   
       <div class="card-actions justify-around bg-slate-300 pb-4">
           <button class="btn">Details</button>
-          <button onclick="buyNow('${title}','${image}','${price}','${id}')" class="btn btn-primary">BUY NOW</button>
+          <button onclick="buyNow('${title}','${image}','${price}','${id}','${description}')" class="btn btn-primary">BUY NOW</button>
         </div>
       `
       container.appendChild(cardDiv);
@@ -28,7 +28,7 @@ function cartDisplay(array) {
   const cartContainer = document.getElementById("cart-items-container");
   cartContainer.textContent = '';
   array.forEach(item => {
-    const { value, name ,image,id,price} = item;
+    const { value, title ,image,id,price} = item;
     const div = document.createElement("div");
     div.classList.add(
       "flex",
@@ -47,7 +47,7 @@ function cartDisplay(array) {
       alt=""
     />
     <div class="flex items-center justify-between w-[80%]">
-      <h1 class="font-semibold">${name}</h1>
+      <h1 class="font-semibold">${title}</h1>
       <input
         type="text"
         class="border-2 border-green-800 w-10 text-center rounded-md"
@@ -65,6 +65,29 @@ function cartDisplay(array) {
     `;
     cartContainer.appendChild(div)
   })
-  const total = prices.reduce((p,c) => p + c,0)
-  byId('total').innerText = total.toFixed(2)
+
+}
+
+const setStore = (key, value) => {
+  const converValue = JSON.stringify(value);
+  localStorage.setItem(key, converValue);
+}
+
+const getStore = (key) => {
+  const items = localStorage.getItem(key);
+  if(!items) return []
+  return JSON.parse(items);
+}
+
+
+// buy defult set value 
+function defPrice(arr){
+  let sum = 0;
+  arr.forEach(item => {
+    const rate = item.price * item.value
+    sum += rate;
+  });
+
+  byId('total').innerText = ''
+  byId('total').innerText = sum.toFixed(2)
 }

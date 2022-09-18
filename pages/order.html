@@ -13,15 +13,15 @@
      <!-- Nav bar -->
      <div class="navbar bg-slate-700">
         <div class="flex-1">
-          <a class="btn btn-ghost text-white font-bold normal-case text-2xl">Mobile Store</a>
+          <a class="btn btn-ghost text-white font-bold normal-case text-2xl">Online Store</a>
         </div>
         <div class="flex-none">
           <!-- menus -->
           <div class="hidden lg:flex">
             <ul class="text-2xl font-semibold text-white flex gap-4">
-                <li><a href="/index.html"><i class="fa-solid fa-house mr-2"></i>Home</a></li>
+                <li><a href="/"><i class="fa-solid fa-house mr-2"></i>Home</a></li>
                 <li><i class="fa-solid fa-heart mr-2"></i>WishList</li>
-                <li><a href="./pages/order.html"><i class="fa-solid fa-list mr-2"></i>Order List</a></li>
+                <li><a href="#"><i class="fa-solid fa-list mr-2"></i>Order List</a></li>
             </ul>
           </div>
           <!-- menus end-->
@@ -40,7 +40,7 @@
                 <div id="cart-items-container" class=""></div>
                 <span class="text-info text-purple-700">Subtotal: $ <span id="total"></span></span>
                 <div class="card-actions">
-                  <button id="confirm" class="btn btn-primary btn-block">Confirm Order</button>
+                  <button class="btn btn-primary btn-block">Confirm Order</button>
                 </div>
               </div>
             </div>
@@ -54,7 +54,8 @@
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black">
                 <li><a href="/"><span><i class="fa-solid fa-house mr-2"></i>Home</span></a></li>
                 <li><span><i class="fa-solid fa-heart mr-2"></i>WishList</span></li>
-                <li><a href="./pages/order.html"><span><i class="fa-solid fa-list mr-2"></i>Order List</span></a></li>
+                <li><a href="#"><span><i class="fa-solid fa-list mr-2"></i>Order List</span></a></li>
+                
             </ul>
           </div>
           <!-- menu for mobile device end-->
@@ -62,16 +63,17 @@
         </div>
       </div>
      <!-- Nav bar end -->
-  <div class="">
-    <h1 class="text-center text-2xl font-bold italic">Welcome To Our Store</h1>
-  </div>
+      <div class="">
+        <h1 class="text-center text-2xl font-bold italic">Your Order History</h1>
+      </div>
      <!-- main display section -->
      <main class="lg:w-9/12 mx-auto mt-8">
         <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2" id="main-container">
         </div>
      </main>
+
+     <script src="../js/utilites.js"></script>
+     <script src="../js/order.js"></script>
      <!-- main display section end -->
-     <script src="./js/utilites.js"></script>
-    <script src="./js/main.js"></script>
 </body>
 </html>
