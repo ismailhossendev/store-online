@@ -81,5 +81,5 @@ byId('confirm').addEventListener('click', function () {
   cartDisplay(cartProducts);
   localStorage.removeItem('key')
   byId('bage').innerText = 0;
-  location.href = "../pages/order.html"
+  location.href = "/pages/order.html"
 })
