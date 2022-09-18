@@ -4,30 +4,55 @@ const mobileApi = async () => {
     displayData(data)
 }
 mobileApi()
+
+// Global variable and array 
+let prices = []
+let cartProducts = [];
+
+
+
 const displayData = (data) => {
-    console.log(data);
-    const mainContainer = byId('main-container') 
-    data.forEach(product => {
-        const { description, image, title, id, price } = product
-        const des = description.slice(0,100)
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card', 'glass');
-        cardDiv.innerHTML = `
-        <figure><img class="w-full h-[400px]" src="${image}" alt="car!"/></figure>
-        <div class="card-body bg-slate-300">
-          <h2 class="card-title">${title}</h2>
-          <p>${des}..</p>
-          <p>Price: ${price}$</p>
-        </div>   
-        <div class="card-actions justify-around bg-slate-300 pb-4">
-            <button class="btn">Details</button>
-            <button class="btn btn-primary">BUY NOW</button>
-          </div>
-        `
-        mainContainer.appendChild(cardDiv);
-    });
+  const mainContainer = byId('main-container') 
+  displayProduct(data,mainContainer)
 }
 
-const buyNow = () => {
-    
-}
+const buyNow = (name, img, price, id) => {
+  prices.push(parseFloat(price))
+  const title = name.slice(0, 10)
+  let couts = 1
+  const products = {
+    name: title,
+    image: img,
+    price: price,
+    id: id,
+    value: couts
+  };
+  const test = cartProducts.findIndex(x => x.id === id);
+  if (test === -1) {
+    cartProducts.push(products)
+  }
+  else {
+    cartProducts[test].value += 1
+  }
+  const bage = cartProducts.reduce((p,c) => p+c.value,0)
+  byId('bage').innerText = bage;
+};
+byId('cart').addEventListener('click', function () {
+  cartDisplay(cartProducts);
+});
+
+// delete button sections
+const trashHandle = (id,price) => {
+  const afterDelete = cartProducts.filter(item => id != item.id)
+  cartProducts = afterDelete
+  cartDisplay(cartProducts);
+
+
+  const afterPrice = prices.filter(p => p != price);
+  prices = afterPrice
+  const total = prices.reduce((p,c) => p + c,0)
+  byId('total').innerText = total.toFixed(2)
+
+  const bage = cartProducts.reduce((p,c) => p+c.value,0)
+  byId('bage').innerText = bage;
+} 
