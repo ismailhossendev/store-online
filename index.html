@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.28.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+     <!-- Nav bar -->
+     <div class="navbar bg-slate-700">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-white font-bold normal-case text-2xl">Mobile Store</a>
+        </div>
+        <div class="flex-none">
+          <!-- menus -->
+          <div class="hidden lg:flex">
+            <ul class="text-2xl font-semibold text-white flex gap-4">
+                <li><i class="fa-solid fa-house mr-2"></i>Home</li>
+                <li><i class="fa-solid fa-heart mr-2"></i>WishList</li>
+                <li><i class="fa-solid fa-list mr-2"></i>Order List</li>
+            </ul>
+          </div>
+          <!-- menus end-->
+
+          <!--  cart -->
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+              <div class="indicator text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                <span class="badge badge-sm indicator-item">8</span>
+              </div>
+            </label>
+            <!-- cart items -->
+            <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+              <div class="card-body">
+                <span class="font-bold text-lg">8 Items</span>
+                <span class="text-info">Subtotal: $999</span>
+                <div class="card-actions">
+                  <button class="btn btn-primary btn-block">View cart</button>
+                </div>
+              </div>
+            </div>
+            <!-- cart items end --> 
+          </div>
+          <!-- menu for mobile device -->
+          <div class="dropdown dropdown-end lg:hidden">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                <span><i class="fa-solid fa-bars text-xl text-white"></i></span>
+            </label>
+            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black">
+                <li><span><i class="fa-solid fa-house mr-2"></i>Home</span></li>
+                <li><span><i class="fa-solid fa-heart mr-2"></i>WishList</span></li>
+                <li><span><i class="fa-solid fa-list mr-2"></i>Order List</span></li>
+            </ul>
+          </div>
+          <!-- menu for mobile device end-->
+
+        </div>
+      </div>
+     <!-- Nav bar end -->
+
+     <!-- main display section -->
+     <main class="lg:w-9/12 mx-auto mt-8">
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2" id="main-container">
+        </div>
+     </main>
+     <!-- main display section end -->
+     <script src="./js/utilites.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
